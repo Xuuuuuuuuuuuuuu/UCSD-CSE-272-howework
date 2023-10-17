@@ -76,6 +76,7 @@
 		</sampler>
 
 		<film type="hdrfilm" id="film">
+			<string name="filename" value="../output/vol4/test_4.exr"/>
 			<integer name="width" value="512"/>
 			<integer name="height" value="512"/>
 			<string name="pixelFormat" value="rgb"/>

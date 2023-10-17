@@ -126,7 +126,9 @@ void sphere_occluded_func(const RTCOccludedFunctionNArguments* args) {
         return;
     }
 
+    // std::cout<<"t0: "<<t0<<"  t1: "<<t1<<std::endl;
     assert(t0 <= t1);
+
     Real t = -1;
     if (t0 >= ray.tnear && t0 < ray.tfar) {
         t = t0;
