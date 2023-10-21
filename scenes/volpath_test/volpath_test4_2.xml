@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <scene version="0.5.0">
-	<integrator type="path">
+	<integrator type="volpath">
 		<integer name="maxDepth" value="6"/>
-		<!-- <integer name="version" value="4"/> -->
+		<integer name="version" value="4"/>
 	</integrator>
 
-	<!-- <medium type="homogeneous" id="medium">
+	<medium type="homogeneous" id="medium">
 		<rgb name="sigmaA" value="1.0 1.0 1.0"/>
 		<rgb name="sigmaS" value="0.5 0.5 0.5"/>
-		<float name="scale" value="200"/> -->
+		<float name="scale" value="200"/>
 
 <!-- 		<phase type="hg">
 			<float name="g" value="0.5"/>
 		</phase> -->
-	<!-- </medium> -->
+	</medium>
 
 	<shape type="sphere">
 		<point name="center" x="0" y="0" z="0"/>
 		<float name="radius" value="0.75"/>
-	<bsdf type="diffuse" id="white">
-		<spectrum name="reflectance" value="400:0.343, 404:0.445, 408:0.551, 412:0.624, 416:0.665, 420:0.687, 424:0.708, 428:0.723, 432:0.715, 436:0.71, 440:0.745, 444:0.758, 448:0.739, 452:0.767, 456:0.777, 460:0.765, 464:0.751, 468:0.745, 472:0.748, 476:0.729, 480:0.745, 484:0.757, 488:0.753, 492:0.75, 496:0.746, 500:0.747, 504:0.735, 508:0.732, 512:0.739, 516:0.734, 520:0.725, 524:0.721, 528:0.733, 532:0.725, 536:0.732, 540:0.743, 544:0.744, 548:0.748, 552:0.728, 556:0.716, 560:0.733, 564:0.726, 568:0.713, 572:0.74, 576:0.754, 580:0.764, 584:0.752, 588:0.736, 592:0.734, 596:0.741, 600:0.74, 604:0.732, 608:0.745, 612:0.755, 616:0.751, 620:0.744, 624:0.731, 628:0.733, 632:0.744, 636:0.731, 640:0.712, 644:0.708, 648:0.729, 652:0.73, 656:0.727, 660:0.707, 664:0.703, 668:0.729, 672:0.75, 676:0.76, 680:0.751, 684:0.739, 688:0.724, 692:0.73, 696:0.74, 700:0.737"/>
-	</bsdf>
-		<!-- <ref name="interior" id="medium"/> -->
+		<ref name="interior" id="medium"/>
 	</shape>
 
 	<shape type="sphere">
@@ -62,7 +59,7 @@
 		</sampler>
 
 		<film type="hdrfilm" id="film">
-			<string name="filename" value="../output/vol4_2/diffuse.exr"/>
+			<string name="filename" value="../output/vol4_2/test.exr"/>
 			<integer name="width" value="512"/>
 			<integer name="height" value="512"/>
 			<string name="pixelFormat" value="rgb"/>

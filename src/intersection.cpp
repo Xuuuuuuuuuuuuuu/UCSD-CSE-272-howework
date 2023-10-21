@@ -88,6 +88,9 @@ Spectrum emission(const PathVertex &v,
                   const Vector3 &view_dir,
                   const Scene &scene) {
     int light_id = get_area_light_id(scene.shapes[v.shape_id]);
+    // std::cout<<"shape_num: "<<scene.shapes.size()<<std::endl;
+    // std::cout<<"shape_i: "<<v.shape_id<<std::endl;
+    // std::cout<<"light_id: "<<light_id<<std::endl;
     assert(light_id >= 0);
     const Light &light = scene.lights[light_id];
     return emission(light,

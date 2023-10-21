@@ -135,7 +135,12 @@ Image3 vol_path_render(const Scene &scene) {
             for (int x = x0; x < x1; x++) {
                 Spectrum radiance = make_zero_spectrum();
                 int spp = scene.options.samples_per_pixel;
-                for (int s = 0; s < spp; s++) {
+                for (int s = 0; s < spp; s++) 
+                {
+                    // if(x==134&&y==237)
+                    // {
+                    //     std::cout<<"debug"<<std::endl;
+                    // }
                     Spectrum L = f(scene, x, y, rng);
                     if (isfinite(L)) {
                         // Hacky: exclude NaNs in the rendering.

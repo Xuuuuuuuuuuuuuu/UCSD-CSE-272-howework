@@ -16,7 +16,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 #设置构建类型，包括debug、release、RelWithDebInfo、MinSizeRel
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
+set(CMAKE_BUILD_TYPE release)
 
 #启用警告信息
 if(MSVC)
