@@ -137,7 +137,7 @@ Image3 vol_path_render(const Scene &scene) {
                 int spp = scene.options.samples_per_pixel;
                 for (int s = 0; s < spp; s++) 
                 {
-                    // if(x==134&&y==237)
+                    // if(x==122&&y==217)
                     // {
                     //     std::cout<<"debug"<<std::endl;
                     // }
