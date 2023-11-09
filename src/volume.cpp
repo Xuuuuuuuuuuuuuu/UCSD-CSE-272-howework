@@ -68,6 +68,7 @@ std::variant<GridVolume<Real>, GridVolume<Vector3>>
         Real max_data = 0;
         for (int i = 0; i < xres * yres * zres; i++) {
             data[i] = raw_data[channels * i];
+            // std::cout<<data[i] <<std::endl;
             max_data = max(max_data, data[i]);
         }
         return GridVolume<Real>{
@@ -85,6 +86,7 @@ std::variant<GridVolume<Real>, GridVolume<Vector3>>
             if (channels == 1) {
                 Real v = raw_data[i];
                 data[i] = fromRGB(Vector3{v, v, v});
+
             } else {
                 data[i] = fromRGB(
                     Vector3{raw_data[3 * i + 0],
@@ -92,7 +94,9 @@ std::variant<GridVolume<Real>, GridVolume<Vector3>>
                             raw_data[3 * i + 2]});
             }
             max_data = max(max_data, data[i]);
+            // std::cout<<data[i] <<std::endl;
         }
+        // std::cout<<max_data <<std::endl;
         return GridVolume<Spectrum>{
             Vector3i{xres, yres, zres},
             Vector3{xmin, ymin, zmin}, // pmin

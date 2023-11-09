@@ -21,6 +21,13 @@ struct get_sigma_a_op {
     const Vector3 &p;
 };
 
+struct get_sigma_t_op {
+    Spectrum operator()(const HomogeneousMedium &m);
+    Spectrum operator()(const HeterogeneousMedium &m);
+
+    const Vector3 &p;
+};
+
 #include "media/homogeneous.inl"
 #include "media/heterogeneous.inl"
 
@@ -34,4 +41,8 @@ Spectrum get_sigma_s(const Medium &medium, const Vector3 &p) {
 
 Spectrum get_sigma_a(const Medium &medium, const Vector3 &p) {
     return std::visit(get_sigma_a_op{p}, medium);
+}
+
+Spectrum get_sigma_t(const Medium &medium, const Vector3 &p) {
+    return std::visit(get_sigma_t_op{p}, medium);
 }

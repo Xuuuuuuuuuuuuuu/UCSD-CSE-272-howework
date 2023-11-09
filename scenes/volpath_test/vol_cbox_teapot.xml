@@ -3,7 +3,7 @@
 <scene version="0.5.0">
 	<integrator type="volpath">
 		<integer name="maxDepth" value="-1"/>
-		<integer name="version" value="5"/>
+		<integer name="version" value="6"/>
 	</integrator>
 
 	<medium type="homogeneous" id="medium">
@@ -27,6 +27,7 @@
 		</sampler>
 
 		<film type="hdrfilm">
+			<!-- <string name="filename" value="../output/vol5_4/image_no_medium.exr"/>	 -->
 			<integer name="width" value="512"/>
 			<integer name="height" value="512"/>
 

@@ -43,6 +43,8 @@ T eval_volume_op<T>::operator()(const ConstantVolume<T> &v) const {
 }
 template <typename T>
 T eval_volume_op<T>::operator()(const GridVolume<T> &v) const {
+    // std::cout<<"p_min: "<<v.p_min<<"p_max: "<<v.p_max<<std::endl;
+    // std::cout<<v.data<<std::endl;
     // Trilinear interpolation
     Vector3 pn = (p - v.p_min) / (v.p_max - v.p_min);
     if (pn.x < 0 || pn.x > 1 || pn.y < 0 || pn.y > 1 || pn.z < 0 || pn.z > 1) {

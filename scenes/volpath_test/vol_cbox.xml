@@ -13,6 +13,7 @@
 	</medium>
 
 	<sensor type="perspective">
+		<string name="filename" value="../output/vol5_3/image.exr"/>
 		<string name="fovAxis" value="smaller"/>
 		<float name="nearClip" value="10"/>
 		<float name="farClip" value="2800"/>

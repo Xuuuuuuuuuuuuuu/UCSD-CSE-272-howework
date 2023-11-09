@@ -25,6 +25,8 @@ using Medium = std::variant<HomogeneousMedium, HeterogeneousMedium>;
 Spectrum get_majorant(const Medium &medium, const Ray &ray);
 Spectrum get_sigma_s(const Medium &medium, const Vector3 &p);
 Spectrum get_sigma_a(const Medium &medium, const Vector3 &p);
+Spectrum get_sigma_t(const Medium &medium, const Vector3 &p);
+
 
 inline PhaseFunction get_phase_function(const Medium &medium) {
     return std::visit([&](const auto &m) { return m.phase_function; }, medium);

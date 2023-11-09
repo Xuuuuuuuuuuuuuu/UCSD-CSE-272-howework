@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 
 <scene version="0.5.0">
 	<integrator type="volpath">
@@ -16,6 +16,8 @@
 		<volume name="albedo" type="constvolume">
 			<rgb name="value" value="0.9"/>
 		</volume>
+		
+		
 		<float name="scale" value="100"/>
 
 		<float name="stepSize" value="0.1"/>
@@ -57,8 +59,10 @@
 		</sampler>
 
 		<film type="hdrfilm">
-			<integer name="height" value="576"/>
-			<integer name="width" value="768"/>
+			<!-- <integer name="height" value="576"/>
+			<integer name="width" value="768"/> -->
+			<integer name="height" value="290"/>
+			<integer name="width" value="380"/>
 
 			<rfilter type="gaussian"/>
 		</film>
@@ -67,7 +71,9 @@
 	<shape type="sphere">
 		<point name="center" x="0" y="-2" z="-1"/>
 		<float name="radius" value="1"/>
-
+		<!-- <bsdf type="diffuse">
+			<rgb name="reflectance" value="0.0 0.0 0.0"/>
+		</bsdf> -->
 		<emitter type="area">
 			<spectrum name="radiance" value="16"/>
 		</emitter>

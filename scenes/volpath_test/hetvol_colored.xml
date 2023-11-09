@@ -16,6 +16,7 @@
 		<volume name="albedo" type="gridvolume">
 			<string name="filename" value="albedo.vol"/>
 		</volume>
+		
 		<float name="scale" value="100"/>
 
 		<float name="stepSize" value="0.1"/>
@@ -49,7 +50,7 @@
 		</transform>
 
 		<sampler type="independent">
-			<integer name="sampleCount" value="64"/>
+			<integer name="sampleCount" value="10000"/>
 		</sampler>
 
 		<film type="hdrfilm">

@@ -9,3 +9,6 @@ Spectrum get_sigma_s_op::operator()(const HomogeneousMedium &m) {
 Spectrum get_sigma_a_op::operator()(const HomogeneousMedium &m) {
     return m.sigma_a;
 }
+Spectrum get_sigma_t_op::operator()(const HomogeneousMedium &m) {
+    return m.sigma_a+m.sigma_s;
+}
