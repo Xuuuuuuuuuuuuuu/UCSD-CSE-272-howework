@@ -14,7 +14,7 @@
 		</volume>
 
 		<volume name="albedo" type="constvolume">
-			<rgb name="value" value="0.9"/>
+			<rgb name="value" value="0.8, 0.3, 0.3"/>
 		</volume>
 		
 		
