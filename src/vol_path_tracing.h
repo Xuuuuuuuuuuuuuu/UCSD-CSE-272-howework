@@ -1067,15 +1067,17 @@ Spectrum vol_path_tracing(const Scene &scene,
                 {
                     Spectrum l_emit=emission(*vertex_, -ray.dir, scene);
 
+                   Real G= fabs(dot(ray.dir, vertex_->geometric_normal)) /
+                    distance_squared(ray.org, vertex_->position);
+
                     int light_id=get_area_light_id(scene.shapes[vertex_->shape_id]);
                     const Light &light = scene.lights[light_id];
                     PointAndNormal light_point{vertex_->position, vertex_->geometric_normal};
                     Real light_pdf= light_pmf(scene, light_id) *
-                            pdf_point_on_light(light, light_point, ray.org, scene);
+                            pdf_point_on_light(light, light_point, ray.org, scene)/G;
 
-                    Real G= fabs(dot(ray.dir, vertex_->geometric_normal)) /
-                    distance_squared(ray.org, vertex_->position);
-                    Real dir_pdf=average(last_f_pdf*G*last_arrive_surface_pdf);
+ 
+                    Real dir_pdf=average(last_f_pdf*last_arrive_surface_pdf);
 
                     // Multiple importance sample：pdf_light and pdf_phase_trans
                     Real w=(dir_pdf*dir_pdf)/(light_pdf*light_pdf+dir_pdf*dir_pdf);
@@ -1262,18 +1264,18 @@ Spectrum vol_path_tracing(const Scene &scene,
                 f=eval(mat, -ray.dir, light_dir, *vertex_, scene.texture_pool);
                 f_pdf=pdf_sample_bsdf(mat, -ray.dir, light_dir, *vertex_, scene.texture_pool);
             }
-            dir_pdf=average(f_pdf*G*arrive_light_pdf);
+            dir_pdf=average(f_pdf*arrive_light_pdf);
 
             Spectrum L_direct=emission(light, -light_dir, Real(0), point_on_light, scene);
             Real light_pdf = light_pmf(scene, light_id) *
-                pdf_point_on_light(light, point_on_light, terminate_vertex_pos, scene);
+                pdf_point_on_light(light, point_on_light, terminate_vertex_pos, scene)/G;
 
             Real w=(light_pdf*light_pdf)/(light_pdf*light_pdf+dir_pdf*dir_pdf);
             // std::cout<<"light_pdf: "<<light_pdf<<std::endl;
             // std::cout<<"arrive_light_pdf: "<<arrive_light_pdf<<std::endl;
             // std::cout<<"dir_pdf: "<<dir_pdf<<std::endl;
             // std::cout<<"w: "<<w<<std::endl;
-            radiance+=current_path_throughput*f*(L_direct*T/light_pdf)*G*w;
+            radiance+=current_path_throughput*f*(L_direct*T/light_pdf)*w;
 
         }
 
